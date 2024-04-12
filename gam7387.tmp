@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://vch5dssgmxvh"]
+
+[ext_resource type="Texture2D" uid="uid://but4re8qyqlca" path="res://textures/grass1.png" id="1_4rj0t"]
+[ext_resource type="Script" path="res://GameManager.gd" id="1_7vsf7"]
+[ext_resource type="PackedScene" uid="uid://dameu5vc6i2jm" path="res://camera_2d.tscn" id="4_106fj"]
+[ext_resource type="PackedScene" uid="uid://cuifxqyu50dbi" path="res://bunny_spawn_point.tscn" id="5_051co"]
+[ext_resource type="PackedScene" uid="uid://c4fyn5g4dv6j3" path="res://UI/RadialMenu.tscn" id="5_vv6xf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcthc"]
+size = Vector2(512, 384)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_7vsf7")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(2054, 763)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(0, -63)
+texture = ExtResource("1_4rj0t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_tcthc")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1542, 763)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(0, -63)
+texture = ExtResource("1_4rj0t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_tcthc")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1030, 763)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(0, -63)
+texture = ExtResource("1_4rj0t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_tcthc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(518, 763)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, -63)
+texture = ExtResource("1_4rj0t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_tcthc")
+
+[node name="Camera2D" parent="." instance=ExtResource("4_106fj")]
+position = Vector2(669, 583)
+zoom = Vector2(1, 1)
+maxZoom = 1.5
+minZoom = 0.5
+zoomSpeed = Vector2(0.025, 0.025)
+
+[node name="bunny_spawn_point" parent="." instance=ExtResource("5_051co")]
+position = Vector2(460, 328)
+
+[node name="bunny_spawn_point2" parent="." instance=ExtResource("5_051co")]
+position = Vector2(2103, 326)
+
+[node name="RadialMenu" parent="." instance=ExtResource("5_vv6xf")]

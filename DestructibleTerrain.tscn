@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo3bnxqorchuv"]
+
+[ext_resource type="Script" path="res://DestructibleTerrain.gd" id="1_4tfgl"]
+[ext_resource type="Texture2D" uid="uid://bxl3thu4vgki7" path="res://textures/ground1.png" id="1_jwce3"]
+
+[node name="DestructibleTerrain" type="Polygon2D"]
+position = Vector2(29, 85)
+scale = Vector2(1.04795, 1.17784)
+texture = ExtResource("1_jwce3")
+polygon = PackedVector2Array(3, 2, 583, 0, 498, 334, -1, 343)
+script = ExtResource("1_4tfgl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(13.3137, 11.8861)

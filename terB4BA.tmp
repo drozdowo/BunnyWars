@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://kee5hc4q4556"]
+
+[ext_resource type="Script" path="res://terrain.gd" id="1_hnu0r"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_hnu0r")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(3, 8, 369, 10, 368, 229, 6, 229)

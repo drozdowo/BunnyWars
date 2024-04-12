@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuifxqyu50dbi"]
+
+[ext_resource type="Script" path="res://bunny_spawn_point.gd" id="1_0hyi1"]
+[ext_resource type="Texture2D" uid="uid://b1dw5inxof728" path="res://Bunny/spawn_point.png" id="1_vw3jh"]
+
+[node name="bunny_spawn_point" type="Node2D"]
+script = ExtResource("1_0hyi1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_vw3jh")

@@ -1,0 +1,120 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgyyhw0vdjd53"]
+
+[ext_resource type="Script" path="res://bunny.gd" id="1_tpkj6"]
+[ext_resource type="Texture2D" uid="uid://djl2mb6meyw7" path="res://Bunny/bunny.png" id="2_3b2nk"]
+[ext_resource type="Script" path="res://Bunny/Background.gd" id="3_bcvcw"]
+[ext_resource type="Script" path="res://Bunny/WeaponMount.gd" id="5_glppa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_djd8a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3b2nk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6em3g"]
+radius = 53.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02cfc"]
+bg_color = Color(0.827451, 0, 0.0235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68j8j"]
+bg_color = Color(0.294118, 0.709804, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ocbhq"]
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Bunny" type="CharacterBody2D"]
+position = Vector2(502, 323)
+collision_layer = 2
+floor_snap_length = 32.0
+script = ExtResource("1_tpkj6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_djd8a")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6em3g")
+
+[node name="BunnyOverhead" type="CanvasGroup" parent="."]
+
+[node name="OverheadBackground" type="Control" parent="BunnyOverhead"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="BunnyOverhead/OverheadBackground"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -111.0
+offset_right = 69.0
+offset_bottom = -62.0
+color = Color(0, 0, 0, 0.2)
+script = ExtResource("3_bcvcw")
+inactive_color = Color(1, 1, 1, 0.2)
+active_color = Color(0.8, 0, 0.423529, 1)
+
+[node name="Right" type="ColorRect" parent="BunnyOverhead/OverheadBackground"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = -111.0
+offset_right = 69.0
+offset_bottom = -62.0
+
+[node name="Left" type="ColorRect" parent="BunnyOverhead/OverheadBackground"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -111.0
+offset_right = -70.0
+offset_bottom = -62.0
+
+[node name="Top" type="ColorRect" parent="BunnyOverhead/OverheadBackground"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -111.0
+offset_right = 69.0
+offset_bottom = -109.0
+
+[node name="Bottom" type="ColorRect" parent="BunnyOverhead/OverheadBackground"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -64.0
+offset_right = 69.0
+offset_bottom = -62.0
+
+[node name="Health" type="ProgressBar" parent="BunnyOverhead"]
+offset_left = -54.0
+offset_top = -82.0
+offset_right = 46.0
+offset_bottom = -67.0
+theme_override_styles/background = SubResource("StyleBoxFlat_02cfc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_68j8j")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="Name" type="Label" parent="BunnyOverhead"]
+offset_left = -70.0
+offset_top = -107.0
+offset_right = 62.0
+offset_bottom = -84.0
+text = "%BUNNYNAME%"
+label_settings = SubResource("LabelSettings_ocbhq")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="WeaponMount" type="Sprite2D" parent="."]
+position = Vector2(-5, 16)
+scale = Vector2(0.2, 0.2)
+centered = false
+offset = Vector2(0, -135)
+script = ExtResource("5_glppa")

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://durxp1nf8wk6r"]
+
+[ext_resource type="Script" path="res://weapons/grenade/grenadethrown.gd" id="1_pht2r"]
+[ext_resource type="Texture2D" uid="uid://cmg8exav6oktu" path="res://weapons/grenade/lettucegrenade.png" id="2_febfs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cjbpm"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nr7oy"]
+radius = 27.7849
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h0wjg"]
+radius = 225.002
+
+[node name="Grenade" type="RigidBody2D"]
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_cjbpm")
+script = ExtResource("1_pht2r")
+
+[node name="GrenadeHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nr7oy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_febfs")
+
+[node name="FuseTimer" type="Timer" parent="."]
+
+[node name="Explosion" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="ExplosionRadius" type="CollisionShape2D" parent="Explosion"]
+shape = SubResource("CircleShape2D_h0wjg")

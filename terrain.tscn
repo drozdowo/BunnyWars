@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://kee5hc4q4556"]
+
+[ext_resource type="Script" path="res://terrain.gd" id="1_hnu0r"]
+[ext_resource type="Texture2D" uid="uid://bxl3thu4vgki7" path="res://textures/ground1.png" id="2_u23xn"]
+
+[node name="terrain" type="StaticBody2D"]
+script = ExtResource("1_hnu0r")
+
+[node name="terrain" type="Polygon2D" parent="."]
+texture_repeat = 2
+antialiased = true
+texture = ExtResource("2_u23xn")
+polygon = PackedVector2Array(0, 0, 500, 0, 500, 250, 0, 250)

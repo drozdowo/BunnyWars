@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dameu5vc6i2jm"]
+
+[ext_resource type="Script" path="res://CameraScroller.gd" id="1_wswfs"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(557, 514)
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("1_wswfs")
