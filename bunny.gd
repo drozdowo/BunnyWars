@@ -10,6 +10,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var camera: Camera2D = get_viewport().get_camera_2d()
 @onready var weaponMount: WeaponMount = $WeaponMount
 
+signal take_damage(newHealth: float)
+
 var bunnyName = ''
 var team: int;
 var turnOrder = 0
@@ -40,6 +42,7 @@ func equip_weapon(weapon: Weapon):
 func takeDamage(damage: float):
 	health -= damage;
 	overheadHealth.value = health
+	take_damage.emit(health)
 	if health <= 0:
 		(Consts.root as GameManager).bunnies.erase(self)
 		queue_free()

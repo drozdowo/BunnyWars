@@ -15,6 +15,10 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+sb="*res://sb.gd"
+
 [input]
 
 ui_left={

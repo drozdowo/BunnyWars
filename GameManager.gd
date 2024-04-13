@@ -26,6 +26,7 @@ func startGame():
 		spawned.bunnyName = 'gamer' + str(count)
 		count+=1
 		spawned.position = spawnPoint.position
+	sb.add_team.emit(Team.new("test", Color.RED, 1, bunnies))
 	activate_bunny(bunnies[0])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
