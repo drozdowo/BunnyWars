@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var weaponMount: WeaponMount = $WeaponMount
 
 var bunnyName = ''
+var team: int;
 var turnOrder = 0
 var health = 100
 var isActive: bool = false
@@ -40,6 +41,7 @@ func takeDamage(damage: float):
 	health -= damage;
 	overheadHealth.value = health
 	if health <= 0:
+		(Consts.root as GameManager).bunnies.erase(self)
 		queue_free()
 	
 func handle_controls():

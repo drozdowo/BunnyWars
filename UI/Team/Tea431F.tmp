@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://c668pbmetb45g"]
+
+[ext_resource type="Script" path="res://UI/Team/HealthBars.gd" id="1_yjbw5"]
+
+[node name="TeamDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.251
+anchor_bottom = 0.04
+offset_right = -0.152008
+offset_bottom = 0.079998
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 69.0
+offset_bottom = 26.0
+text = "Team 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBars" type="Container" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.228
+anchor_right = 0.99
+anchor_bottom = 1.0
+offset_left = 0.107994
+offset_right = -0.110016
+script = ExtResource("1_yjbw5")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/HealthBars"]
+layout_mode = 2
+size_flags_vertical = 1

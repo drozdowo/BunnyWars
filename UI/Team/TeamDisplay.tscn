@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c668pbmetb45g"]
+
+[ext_resource type="Script" path="res://UI/Team/TeamDisplay.gd" id="1_bmr56"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sjuk"]
+bg_color = Color(0.447059, 0.682353, 0.0235294, 1)
+
+[node name="TeamDisplay" type="Control"]
+layout_mode = 3
+anchor_right = 0.298
+anchor_bottom = 0.045
+offset_right = 1.70398
+offset_bottom = -0.160002
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bmr56")
+
+[node name="TeamName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.188
+anchor_bottom = 1.0
+offset_right = -329.672
+text = "Team 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.187
+anchor_top = 0.034
+anchor_right = 1.017
+anchor_bottom = 1.0
+offset_left = 15.485
+offset_top = 0.0139999
+offset_right = -11.865
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_4sjuk")
+value = 100.0
+show_percentage = false
