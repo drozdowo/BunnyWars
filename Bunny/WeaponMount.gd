@@ -2,6 +2,7 @@ class_name WeaponMount extends Sprite2D
 
 @onready var myBunny: Bunny = $"../"
 @export var activeWeapon: Weapon = null
+@onready var meleeCollider: Area2D = $MeleeCollider
 
 var isFiring: bool = false;
 var cursor = preload("res://weapons/crosshair.png")

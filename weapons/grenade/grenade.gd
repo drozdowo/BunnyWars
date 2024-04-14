@@ -8,3 +8,4 @@ func equip(mount: WeaponMount):
 func fire(mount: WeaponMount, speed: float):
 	var thrown: ThrowableBase = ThrowableBase.instantiateAndThrow(grenade, mount.global_position, mount.global_rotation, speed)
 	thrown.damage = WEAPON_DAMAGE
+	self.finished_firing.emit()

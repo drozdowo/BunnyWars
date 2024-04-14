@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgyyhw0vdjd53"]
+[gd_scene load_steps=11 format=3 uid="uid://cgyyhw0vdjd53"]
 
 [ext_resource type="Script" path="res://bunny.gd" id="1_tpkj6"]
 [ext_resource type="Texture2D" uid="uid://djl2mb6meyw7" path="res://Bunny/bunny.png" id="2_3b2nk"]
@@ -29,9 +29,13 @@ bg_color = Color(0.294118, 0.709804, 0, 1)
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pe15y"]
+radius = 220.0
+
 [node name="Bunny" type="CharacterBody2D"]
 position = Vector2(502, 323)
 collision_layer = 2
+floor_constant_speed = true
 floor_snap_length = 32.0
 script = ExtResource("1_tpkj6")
 
@@ -118,3 +122,11 @@ scale = Vector2(0.2, 0.2)
 centered = false
 offset = Vector2(0, -135)
 script = ExtResource("5_glppa")
+
+[node name="MeleeCollider" type="Area2D" parent="WeaponMount"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponMount/MeleeCollider"]
+position = Vector2(370, -55)
+shape = SubResource("CircleShape2D_pe15y")

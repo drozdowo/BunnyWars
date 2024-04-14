@@ -6,6 +6,7 @@
 [node name="Katana" type="Area2D"]
 script = ExtResource("1_06ntu")
 WEAPON_NAME = "Katana"
+WEAPON_TYPE = null
 WEAPON_SPRITE = ExtResource("1_6c67m")
 WEAPON_DAMAGE = 50.0
 
@@ -13,9 +14,6 @@ WEAPON_DAMAGE = 50.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_6c67m")
 
-[node name="Blade" type="Area2D" parent="."]
-
-[node name="Melee" type="CollisionPolygon2D" parent="Blade"]
-scale = Vector2(1, 1)
+[node name="Melee" type="CollisionPolygon2D" parent="."]
 build_mode = 1
 polygon = PackedVector2Array(-8, 6, 33, -37, 36, -30, -4, 14)
