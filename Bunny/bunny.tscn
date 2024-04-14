@@ -40,7 +40,7 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_djd8a")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6em3g")
 
 [node name="BunnyOverhead" type="CanvasGroup" parent="."]

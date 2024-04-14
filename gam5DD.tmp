@@ -19,12 +19,16 @@ minZoom = 0.1
 zoomSpeed = Vector2(0.025, 0.025)
 
 [node name="Control" parent="Camera2D" instance=ExtResource("6_r8jkj")]
-z_index = 1
-offset_left = -17.0
-offset_top = 308.0
-offset_right = -17.0
-offset_bottom = 308.0
-pivot_offset = Vector2(17, -308)
+z_index = 3
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1.0
+offset_top = 324.0
+offset_right = -1.0
+offset_bottom = 324.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="bunny_spawn_point" parent="." instance=ExtResource("5_051co")]
 position = Vector2(457, 337)

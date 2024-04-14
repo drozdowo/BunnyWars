@@ -1,5 +1,7 @@
 class_name Weapon extends Resource
 
+signal finished_firing
+
 enum WEAPON_TYPES {
 	MELEE,
 	HITSCAN,
@@ -9,15 +11,22 @@ enum WEAPON_TYPES {
 	GLOBAL,
 }
 
-@export
-var WEAPON_NAME: String;
+enum WEAPONS {
+	BAZOOKA,
+	KATANA,
+	GRENADE
+}
 
-@export
-var WEAPON_TYPE: WEAPON_TYPES;
+static var WeaponsDict: Dictionary = {
+	WEAPONS.BAZOOKA: "res://weapons/bazooka/bazooka.tres",
+	WEAPONS.KATANA: "res://weapons/katana/katana.tres",
+	WEAPONS.GRENADE: "res://weapons/grenade/grenade.tres"
+}
 
-@export
-var WEAPON_SPRITE: CompressedTexture2D;
-
+@export_category("Weapon Info")
+@export var WEAPON_NAME: String;
+@export var WEAPON_TYPE: WEAPON_TYPES;
+@export var WEAPON_SPRITE: CompressedTexture2D;
 @export var WEAPON_DAMAGE: float;
 
 func equip(mount: WeaponMount):

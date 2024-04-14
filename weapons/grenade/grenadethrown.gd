@@ -8,8 +8,6 @@ class_name GrenadeThrown extends ThrowableBase
 @export var fuse: float = 3;
 @export var collisionFuse: float = 0.5
 
-var explosionDamage = 25;
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	baseThrow = 25;
@@ -28,5 +26,5 @@ func explode():
 			hit.destroyTerrainCircle(explosionRadius.global_position, explosionRadius.shape.radius)
 		if hit is Bunny:
 			hit.velocity += explosionRadius.global_position.direction_to(hit.global_position) * 500
-			hit.takeDamage(explosionDamage)
+			hit.takeDamage(damage)
 	queue_free()

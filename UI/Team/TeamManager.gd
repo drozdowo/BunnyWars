@@ -1,7 +1,8 @@
 class_name TeamManager extends Control
 
 @onready var _teamDisplay = preload("res://UI/Team/TeamDisplay.tscn")
-@onready var _grid = $GridContainer
+@onready var _grid = $ColorRect/GridContainer
+@onready var camera: Camera2D = $"../"
 
 var teamDict = {}
 
@@ -14,6 +15,9 @@ func _ready():
 
 func listenForDamage(bunny: Bunny):
 	bunny.take_damage.connect(updateHealth)
+
+func _process(delta):
+	scale = Vector2(1 / camera.zoom.x, 1 / camera.zoom.y)
 
 func updateHealth(health: float):
 	(teamDict['test'] as TeamDisplay).teamHealth.value = health;

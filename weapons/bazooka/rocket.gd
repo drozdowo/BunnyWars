@@ -3,12 +3,11 @@ class_name BazookaProjectile extends Projectile
 @onready var rocket: Area2D = $Rocket
 @onready var rocketHitbox: CollisionShape2D = $Rocket/Hitbox
 @onready var explosionRadius: CollisionShape2D = $ExplosionRadius
-var explosionDamage = 50
 
 func _init():
 	spriteImage = preload("res://weapons/bazooka/rocket.png")
 	muzzle_velocity = 500
-	directHitDamage = 75
+	damage = 75
 
 func _ready():
 	rocket.body_entered.connect(on_collide)
@@ -24,6 +23,6 @@ func on_collide(body):
 				(hit as DestructibleTerrain).destroyTerrainCircle(pos, radius.radius)
 			if hit is Bunny:
 				hit.velocity += explosionRadius.global_position.direction_to(hit.global_position) * 750
-				hit.takeDamage(explosionDamage)
+				hit.takeDamage(damage)
 			queue_free()
 	pass

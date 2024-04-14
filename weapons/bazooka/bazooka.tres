@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Bazooka" load_steps=3 format=3 uid="uid://b7j846f36u52g"]
+
+[ext_resource type="Texture2D" uid="uid://caye3stmtt40f" path="res://weapons/bazooka/bazooka.png" id="1_f2qd1"]
+[ext_resource type="Script" path="res://weapons/bazooka/bazooka.gd" id="2_0qrd3"]
+
+[resource]
+script = ExtResource("2_0qrd3")
+WEAPON_NAME = "Bazooka"
+WEAPON_TYPE = 3
+WEAPON_SPRITE = ExtResource("1_f2qd1")
+WEAPON_DAMAGE = 50.0

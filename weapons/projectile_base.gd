@@ -4,7 +4,7 @@ var velocity = Vector2.ZERO
 
 @export var spriteImage: CompressedTexture2D;
 @export var muzzle_velocity: float;
-@export var directHitDamage: float;
+@export var damage: float;
 
 func _init():
 	var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -27,3 +27,4 @@ static func instantiateAndLaunch(resource: Resource, position: Vector2, rotation
 	projectile.rotation = rotation
 	Consts.root.add_child(projectile)
 	projectile.launch(max(1, speed / 25))
+	return projectile;

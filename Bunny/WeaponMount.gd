@@ -20,22 +20,25 @@ func _input(event):
 func equipWeapon(weapon: Weapon):
 	if weapon != null:
 		visible = true
-		activeWeapon = weapon
+		activeWeapon = weapon as Weapon
 		texture = weapon.WEAPON_SPRITE
 		activeWeapon.equip(self)
 		Input.set_custom_mouse_cursor(cursor)
 
 func fireWeapon():
+	activeWeapon.finished_firing.connect(finishedFiring);
 	if activeWeapon != null:
 		if isFiring && activeWeapon.canAdjustVelocity():
 			var speed = finishVelocityMeter()
-			isFiring = false
 			activeWeapon.fire(self, speed)
 		else:
 			activeWeapon.fire(self, 1)
-		activeWeapon = null
-		visible = false
-		Input.set_custom_mouse_cursor(null)
+	
+func finishedFiring():
+	isFiring = false;
+	visible = false;
+	activeWeapon = null
+	Input.set_custom_mouse_cursor(null)
 	
 func createVelocityMeter():
 	# create and start meter
