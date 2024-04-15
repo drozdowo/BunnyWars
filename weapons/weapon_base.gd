@@ -14,13 +14,15 @@ enum WEAPON_TYPES {
 enum WEAPONS {
 	BAZOOKA,
 	KATANA,
-	GRENADE
+	GRENADE,
+	GRAPPLINGHOOK
 }
 
 static var WeaponsDict: Dictionary = {
 	WEAPONS.BAZOOKA: "res://weapons/bazooka/bazooka.tres",
 	WEAPONS.KATANA: "res://weapons/katana/katana.tres",
-	WEAPONS.GRENADE: "res://weapons/grenade/grenade.tres"
+	WEAPONS.GRENADE: "res://weapons/grenade/grenade.tres",
+	WEAPONS.GRAPPLINGHOOK: "res://weapons/grapple/grapple.tres"
 }
 
 @export_category("Weapon Info")

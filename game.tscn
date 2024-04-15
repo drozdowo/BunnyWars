@@ -59,3 +59,9 @@ rotation = 0.785398
 [node name="Terrain8" parent="." instance=ExtResource("6_wqbff")]
 position = Vector2(-105, 104)
 rotation = 0.785398
+
+[node name="bunny_spawn_point3" parent="." instance=ExtResource("5_051co")]
+position = Vector2(1273, 341)
+
+[node name="bunny_spawn_point4" parent="." instance=ExtResource("5_051co")]
+position = Vector2(1741, 354)
