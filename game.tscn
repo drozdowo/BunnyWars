@@ -1,14 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://vch5dssgmxvh"]
+[gd_scene load_steps=6 format=3 uid="uid://vch5dssgmxvh"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_7vsf7"]
 [ext_resource type="PackedScene" uid="uid://dameu5vc6i2jm" path="res://camera_2d.tscn" id="4_106fj"]
 [ext_resource type="PackedScene" uid="uid://cuifxqyu50dbi" path="res://bunny_spawn_point.tscn" id="5_051co"]
-[ext_resource type="PackedScene" uid="uid://c4fyn5g4dv6j3" path="res://UI/RadialMenu.tscn" id="5_vv6xf"]
 [ext_resource type="PackedScene" uid="uid://degd8sbjy47uw" path="res://UI/Team/TeamManager.tscn" id="6_r8jkj"]
 [ext_resource type="PackedScene" uid="uid://kee5hc4q4556" path="res://terrain.tscn" id="6_wqbff"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7vsf7")
+deathYPos = null
 
 [node name="Camera2D" parent="." instance=ExtResource("4_106fj")]
 position = Vector2(669, 583)
@@ -31,8 +31,6 @@ position = Vector2(457, 337)
 
 [node name="bunny_spawn_point2" parent="." instance=ExtResource("5_051co")]
 position = Vector2(925, 350)
-
-[node name="RadialMenu" parent="." instance=ExtResource("5_vv6xf")]
 
 [node name="Terrain" parent="." instance=ExtResource("6_wqbff")]
 position = Vector2(371, 468)

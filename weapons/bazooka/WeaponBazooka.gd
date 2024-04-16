@@ -5,3 +5,4 @@ class_name WeaponBazooka extends WeaponBase
 
 func fire(speed: float = 1):
 	print("bazooka fired at ", speed)
+	Projectile.instantiateAndLaunch(projectile, global_position, global_rotation, speed);

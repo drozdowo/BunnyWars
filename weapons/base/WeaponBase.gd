@@ -1,4 +1,4 @@
-class_name WeaponBase extends Node
+class_name WeaponBase extends Node2D
 
 enum WEAPON_TYPES {
 	MELEE,
@@ -17,14 +17,17 @@ enum WEAPON_TYPES {
 @export var WEAPON_TYPE: WEAPON_TYPES;
 @export var WEAPON_SPRITE: CompressedTexture2D;
 @export var WEAPON_SPRITE_SCALE: Vector2 = Vector2(1,1);
+@export var CURSOR_OVERRIDE: CompressedTexture2D = preload("res://weapons/crosshair.png")
 @onready var sprite = $Sprite;
 
 func _ready():
+	print("weapon base load")
 	sb.bunny_equip_weapon.connect(equip)
-	sb.bunny_fire.connect(fire)
+	sb.bunny_fire.connect(begin_fire)
 	sprite.scale = WEAPON_SPRITE_SCALE;
 
 func equip(bunny: Bunny):
+	Input.set_custom_mouse_cursor(CURSOR_OVERRIDE)
 	print(bunny.bunnyName, ' equipped: ', WEAPON_NAME)
 
 # handles the velocity meter if applicable
@@ -38,6 +41,8 @@ func begin_fire(bunny: Bunny):
 	
 
 func fire(speed: float = 1):
+	print("firing: ", WEAPON_NAME)
+	Input.set_custom_mouse_cursor(null)
 	pass
 	
 func release_fire(bunny: Bunny):

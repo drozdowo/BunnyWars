@@ -10,6 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var camera: Camera2D = get_viewport().get_camera_2d()
 @onready var weaponMount: WeaponMount = $WeaponMount
 @onready var collider: CollisionShape2D = $Collider
+@onready var radialMenu: RadialMenu = $RadialMenu
 
 signal take_damage(newHealth: float)
 signal velocity_zero(bunny: Bunny)
@@ -19,8 +20,11 @@ var team: int;
 var turnOrder = 0
 var health = 100
 var isActive: bool = false
-var inventory: Array[Weapon] = []
+var inventory: Array[WeaponBase] = []
 var friction: float = 0.3
+
+func _ready():
+	sb.bunny_equip_weapon.connect(equip_weapon)
 
 func _draw():
 	overheadLabel.text = bunnyName
@@ -42,10 +46,11 @@ func _physics_process(delta):
 	else:
 		handle_controls()
 	
-func equip_weapon(weapon: Weapon):
-	if (inventory.has(weapon)):
+func equip_weapon(weapon: WeaponBase):
+	if (inventory.has(weapon) && isActive):
+		print("equip:", weapon.WEAPON_NAME)
 		weaponMount.visible = true
-		weaponMount.equipWeapon(weapon)
+		weaponMount.equip_weapon(weapon)
 	
 func takeDamage(damage: float):
 	health -= damage;
@@ -59,6 +64,18 @@ func handle_controls():
 	if isActive == false:
 		return 
 		
+	if Input.is_action_just_pressed("bunny_alt_click"):
+		radialMenu.show_radial.emit()
+	
+	if Input.is_action_just_released("bunny_alt_click"):
+		radialMenu.hide_radial.emit()
+		
+	if Input.is_action_just_pressed("bunny_click"):
+		sb.bunny_fire.emit(self)
+	
+	if Input.is_action_just_released("bunny_click"):
+		sb.bunny_release_fire.emit(self)
+		
 	if Input.is_action_just_pressed("bunny_move_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
@@ -71,8 +88,9 @@ func handle_controls():
 		else:
 			_sprite.flip_h = false
 
-func initBunny(bunny: Bunny, name: String, weapons: Array[Weapon.WEAPONS]):
+func initBunny(bunny: Bunny, name: String, weapons: Array[String]):
 	bunny.bunnyName = name
-	for weapon: Weapon.WEAPONS in weapons:
-		var wepInst = load(Weapon.WeaponsDict[weapon])
+	for weaponName in weapons:
+		var wepInst: WeaponBase = (sb.WEAPON_DICT[weaponName] as PackedScene).instantiate()
+		print(wepInst)
 		bunny.inventory.append(wepInst)

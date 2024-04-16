@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgyyhw0vdjd53"]
+[gd_scene load_steps=12 format=3 uid="uid://cgyyhw0vdjd53"]
 
 [ext_resource type="Script" path="res://bunny.gd" id="1_tpkj6"]
 [ext_resource type="Texture2D" uid="uid://djl2mb6meyw7" path="res://Bunny/bunny.png" id="2_3b2nk"]
 [ext_resource type="Script" path="res://Bunny/Background.gd" id="3_bcvcw"]
 [ext_resource type="Script" path="res://Bunny/WeaponMount.gd" id="5_glppa"]
+[ext_resource type="PackedScene" uid="uid://c4fyn5g4dv6j3" path="res://UI/RadialMenu.tscn" id="5_wxxap"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_djd8a"]
 animations = [{
@@ -130,3 +131,5 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponMount/MeleeCollider"]
 position = Vector2(370, -55)
 shape = SubResource("CircleShape2D_pe15y")
+
+[node name="RadialMenu" parent="." instance=ExtResource("5_wxxap")]

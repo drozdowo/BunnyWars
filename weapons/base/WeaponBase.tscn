@@ -6,8 +6,5 @@
 [node name="WeaponBase" type="Node2D"]
 script = ExtResource("1_senxh")
 VELOCITY_METER = ExtResource("2_e2ldd")
-WEAPON_NAME = null
-WEAPON_TYPE = null
-WEAPON_SPRITE_SCALE = null
 
 [node name="Sprite" type="Sprite2D" parent="."]

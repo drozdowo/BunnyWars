@@ -7,11 +7,10 @@
 
 [node name="WeaponBase" instance=ExtResource("1_5by6x")]
 script = ExtResource("2_hy4lu")
-projectile = ExtResource("4_maacf")
 WEAPON_NAME = "Bazooka"
 WEAPON_TYPE = 3
 WEAPON_SPRITE = ExtResource("2_kus1r")
-WEAPON_SPRITE_SCALE = Vector2(1, 1)
+projectile = ExtResource("4_maacf")
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2(0.2, 0.2)
