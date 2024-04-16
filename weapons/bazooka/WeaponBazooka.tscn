@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bcs58r6yihyyx" path="res://weapons/base/WeaponBase.tscn" id="1_5by6x"]
 [ext_resource type="Script" path="res://weapons/bazooka/WeaponBazooka.gd" id="2_hy4lu"]
-[ext_resource type="Texture2D" uid="uid://caye3stmtt40f" path="res://weapons/bazooka/bazooka.png" id="2_kus1r"]
+[ext_resource type="Texture2D" uid="uid://nx5nju5mf40e" path="res://weapons/bazooka/bazooka.png" id="2_kus1r"]
 [ext_resource type="PackedScene" uid="uid://cxbt6eidpfdlf" path="res://weapons/bazooka/rocket.tscn" id="4_maacf"]
 
 [node name="WeaponBase" instance=ExtResource("1_5by6x")]

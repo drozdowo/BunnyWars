@@ -19,7 +19,6 @@ func clear_weapon():
 	remove_child(active_weapon)
 	active_weapon = null;
 	
-		
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
