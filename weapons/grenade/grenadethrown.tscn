@@ -19,6 +19,7 @@ collision_layer = 2
 mass = 1.2
 physics_material_override = SubResource("PhysicsMaterial_cjbpm")
 script = ExtResource("1_pht2r")
+damage = 50.0
 
 [node name="GrenadeHitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nr7oy")

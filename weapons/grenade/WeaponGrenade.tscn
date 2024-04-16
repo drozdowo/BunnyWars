@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx6u22tiv1ypb"]
+
+[ext_resource type="Script" path="res://weapons/grenade/WeaponGrenade.gd" id="1_dx87y"]
+[ext_resource type="PackedScene" uid="uid://durxp1nf8wk6r" path="res://weapons/grenade/grenadethrown.tscn" id="2_4ntsa"]
+[ext_resource type="Texture2D" uid="uid://cmg8exav6oktu" path="res://weapons/grenade/lettucegrenade.png" id="2_ou64s"]
+
+[node name="WeaponBase" type="Node2D"]
+script = ExtResource("1_dx87y")
+grenade = ExtResource("2_4ntsa")
+WEAPON_NAME = "Grenade"
+WEAPON_TYPE = 2
+WEAPON_SPRITE = ExtResource("2_ou64s")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ou64s")

@@ -92,5 +92,5 @@ func initBunny(bunny: Bunny, name: String, weapons: Array[String]):
 	bunny.bunnyName = name
 	for weaponName in weapons:
 		var wepInst: WeaponBase = (sb.WEAPON_DICT[weaponName] as PackedScene).instantiate()
-		print(wepInst)
+		print(weaponName, wepInst)
 		bunny.inventory.append(wepInst)

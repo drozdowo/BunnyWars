@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcs58r6yihyyx"]
+[gd_scene load_steps=2 format=3 uid="uid://bcs58r6yihyyx"]
 
 [ext_resource type="Script" path="res://weapons/base/WeaponBase.gd" id="1_senxh"]
-[ext_resource type="PackedScene" uid="uid://btyhfx5ldkjk4" path="res://weapons/FireVelocityMeter.tscn" id="2_e2ldd"]
 
 [node name="WeaponBase" type="Node2D"]
 script = ExtResource("1_senxh")
-VELOCITY_METER = ExtResource("2_e2ldd")
 
 [node name="Sprite" type="Sprite2D" parent="."]

@@ -16,5 +16,6 @@ signal bunny_equip_weapon(weapon: WeaponBase)
 
 # Weapons
 var WEAPON_DICT = {
-	"Bazooka": preload("res://weapons/bazooka/WeaponBazooka.tscn")
+	"Bazooka": preload("res://weapons/bazooka/WeaponBazooka.tscn"),
+	"Grenade": preload("res://weapons/grenade/WeaponGrenade.tscn")
 }

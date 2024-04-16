@@ -1,4 +1,4 @@
-class_name GrenadeThrown extends ThrowableBase
+extends ThrowableBase
 
 @onready var fuseTimer = $FuseTimer
 @onready var explosionArea = $Explosion

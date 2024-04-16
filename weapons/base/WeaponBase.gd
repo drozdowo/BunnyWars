@@ -10,7 +10,7 @@ enum WEAPON_TYPES {
 }
 
 @export_category("Weapon Functionality")
-@export var VELOCITY_METER: PackedScene;
+var VELOCITY_METER: PackedScene = preload("res://weapons/FireVelocityMeter.tscn")
 
 @export_category("Weapon Info")
 @export var WEAPON_NAME: String;
@@ -22,7 +22,6 @@ enum WEAPON_TYPES {
 
 func _ready():
 	print("weapon base load")
-	sb.bunny_equip_weapon.connect(equip)
 	sb.bunny_fire.connect(begin_fire)
 	sprite.scale = WEAPON_SPRITE_SCALE;
 

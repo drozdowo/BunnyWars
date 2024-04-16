@@ -1,4 +1,4 @@
-class_name WeaponBazooka extends WeaponBase
+extends WeaponBase
 
 @export_category("Bazooka")
 @export var projectile: PackedScene;
