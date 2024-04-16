@@ -23,7 +23,6 @@ texture = ExtResource("1_ycaw3")
 
 [node name="GrappleHit" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(28, 3)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_uhbx1")
 
 [node name="Rope" type="Line2D" parent="."]

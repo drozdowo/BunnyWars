@@ -23,8 +23,8 @@ func _physics_process(delta):
 # will launch the provided resource (of type Projetile) from the provided position, toward the rotation with speed.
 static func instantiateAndLaunch(resource: Resource, position: Vector2, rotation: float, speed: float):
 	var projectile: Projectile = resource.instantiate()
-	projectile.position = position
-	projectile.rotation = rotation
+	projectile.global_position = position
+	projectile.global_rotation = rotation
 	Consts.root.add_child(projectile)
 	projectile.launch(max(1, speed / 25))
 	return projectile;
