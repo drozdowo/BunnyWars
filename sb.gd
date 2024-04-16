@@ -13,6 +13,7 @@ signal bunny_release_fire(bunny: Bunny)
 signal bunny_show_radial(bunny: Bunny)
 signal bunny_hide_radial(bunny: Bunny)
 signal bunny_equip_weapon(weapon: WeaponBase)
+signal bunny_unequip_weapon(weapon: WeaponBase)
 
 # Weapons
 var WEAPON_DICT = {

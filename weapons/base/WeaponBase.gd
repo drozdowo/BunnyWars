@@ -22,16 +22,19 @@ var VELOCITY_METER: PackedScene = preload("res://weapons/FireVelocityMeter.tscn"
 
 func _ready():
 	print("weapon base load")
-	sb.bunny_fire.connect(begin_fire)
 	sprite.scale = WEAPON_SPRITE_SCALE;
 
 func equip(bunny: Bunny):
 	Input.set_custom_mouse_cursor(CURSOR_OVERRIDE)
 	print(bunny.bunnyName, ' equipped: ', WEAPON_NAME)
+	sb.bunny_fire.connect(begin_fire)
+	
+func unequip(bunny: Bunny):
+	print(bunny.bunnyName, ' UNequipped: ', WEAPON_NAME)
+	sb.bunny_fire.disconnect(begin_fire)
 
 # handles the velocity meter if applicable
 func begin_fire(bunny: Bunny):
-	print("begin fire", WEAPON_NAME)
 	if (canAdjustVelocity()):
 		create_velocity_meter(bunny);
 		sb.bunny_release_fire.connect(release_fire)

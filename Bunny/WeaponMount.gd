@@ -6,6 +6,8 @@ class_name WeaponMount extends Sprite2D
 
 func equip_weapon(weapon: WeaponBase):
 	if weapon != null:
+		if active_weapon != null:
+			clear_weapon()
 		visible = true
 		add_child(weapon)
 		weapon.equip(myBunny)
@@ -13,7 +15,10 @@ func equip_weapon(weapon: WeaponBase):
 		
 func clear_weapon():
 	visible = false;
+	active_weapon.unequip(myBunny)
 	remove_child(active_weapon)
+	active_weapon = null;
+	
 		
 # Called when the node enters the scene tree for the first time.
 func _ready():
