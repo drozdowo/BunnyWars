@@ -14,6 +14,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 signal take_damage(newHealth: float)
 signal velocity_zero(bunny: Bunny)
+signal overriding_movement
+signal finish_overriding_movement
 
 var bunnyName = ''
 var team: int;
@@ -22,9 +24,11 @@ var health = 100
 var isActive: bool = false
 var inventory: Array[WeaponBase] = []
 var friction: float = 0.3
+var movementOverridden: bool = false;
 
 func _ready():
 	sb.bunny_equip_weapon.connect(equip_weapon)
+	overriding_movement.connect(override_movement)
 
 func _draw():
 	overheadLabel.text = bunnyName
@@ -76,12 +80,12 @@ func handle_controls():
 	if Input.is_action_just_released("bunny_click"):
 		sb.bunny_release_fire.emit(self)
 		
-	if Input.is_action_just_pressed("bunny_move_up") and is_on_floor():
+	if !movementOverridden && (Input.is_action_just_pressed("bunny_move_up") and is_on_floor()):
 		velocity.y = JUMP_VELOCITY
 
 	var direction = Input.get_axis("bunny_move_left", "bunny_move_right")
 
-	if direction && is_on_floor():
+	if direction && (is_on_floor() or movementOverridden):
 		velocity.x = direction * SPEED
 		if direction == -1:
 			_sprite.flip_h = true
@@ -94,3 +98,13 @@ func initBunny(bunny: Bunny, name: String, weapons: Array[String]):
 		var wepInst: WeaponBase = (sb.WEAPON_DICT[weaponName] as PackedScene).instantiate()
 		print(weaponName, wepInst)
 		bunny.inventory.append(wepInst)
+		
+#called when something (ie: grapple) is overriding our movement
+func override_movement():
+	print(bunnyName, ' movement is overridden')
+	movementOverridden = true
+	finish_overriding_movement.connect(finish_override_movement)
+	
+func finish_override_movement():
+	print(bunnyName, ' movement is NO LONGER overridden')
+	movementOverridden = false

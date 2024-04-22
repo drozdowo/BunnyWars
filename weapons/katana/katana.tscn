@@ -1,14 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2qrdciid6edh"]
 
 [ext_resource type="Texture2D" uid="uid://dsg11akql5esp" path="res://weapons/katana/katana.png" id="1_6c67m"]
-[ext_resource type="Script" path="res://weapons/katana/katana.gd" id="1_06ntu"]
+
+[sub_resource type="GDScript" id="GDScript_b7nei"]
 
 [node name="Katana" type="Area2D"]
-script = ExtResource("1_06ntu")
-WEAPON_NAME = "Katana"
-WEAPON_TYPE = null
-WEAPON_SPRITE = ExtResource("1_6c67m")
-WEAPON_DAMAGE = 50.0
+script = SubResource("GDScript_b7nei")
 
 [node name="Katana" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)

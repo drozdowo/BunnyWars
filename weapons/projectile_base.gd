@@ -6,6 +6,9 @@ var velocity = Vector2.ZERO
 @export var muzzle_velocity: float;
 @export var damage: float;
 
+# If the projectile is "frozen" ie: not moving anymore
+var frozen: bool = false;
+
 func _init():
 	var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -14,9 +17,10 @@ func launch(speedMultiplier: float = 1):
 
 # gravity processing
 func _physics_process(delta):
-	velocity.y += gravity * delta
-	position += velocity * delta
-	rotation = velocity.angle()
+	if (!frozen):
+		velocity.y += gravity * delta
+		position += velocity * delta
+		rotation = velocity.angle()
 
 # called by the weapon script (bazooka.gd)
 # must be provided the resource (.tscn) of the projectile, as well as the position, rotation, and speed of the projetile.

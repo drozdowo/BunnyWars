@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://lrnokpb3p526"]
+
+[ext_resource type="Script" path="res://weapons/grapple/WeaponGrapple.gd" id="1_0rj1i"]
+[ext_resource type="Texture2D" uid="uid://dfgox3mbam4ii" path="res://weapons/grapple/grapplehook.png" id="2_7fgwf"]
+[ext_resource type="PackedScene" uid="uid://buj18tckwywvt" path="res://weapons/grapple/grapple_hook.tscn" id="2_oa8dy"]
+
+[node name="WeaponGrapple" type="Node2D"]
+script = ExtResource("1_0rj1i")
+grapplingHookProjectile = ExtResource("2_oa8dy")
+WEAPON_NAME = "Grappling Hook"
+WEAPON_TYPE = 4
+WEAPON_SPRITE = ExtResource("2_7fgwf")
+WEAPON_SPRITE_SCALE = Vector2(2, 2)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_7fgwf")

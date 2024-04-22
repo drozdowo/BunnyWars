@@ -18,5 +18,7 @@ signal bunny_unequip_weapon(weapon: WeaponBase)
 # Weapons
 var WEAPON_DICT = {
 	"Bazooka": preload("res://weapons/bazooka/WeaponBazooka.tscn"),
-	"Grenade": preload("res://weapons/grenade/WeaponGrenade.tscn")
+	"Grenade": preload("res://weapons/grenade/WeaponGrenade.tscn"),
+	"Katana": preload("res://weapons/katana/WeaponKatana.tscn"),
+	"GrapplingHook": preload("res://weapons/grapple/WeaponGrapple.tscn")
 }

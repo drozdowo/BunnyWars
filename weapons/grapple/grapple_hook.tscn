@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://buj18tckwywvt"]
+[gd_scene load_steps=6 format=3 uid="uid://buj18tckwywvt"]
 
 [ext_resource type="Script" path="res://weapons/grapple/hook.gd" id="1_2rhoa"]
 [ext_resource type="Texture2D" uid="uid://sn6hsyhjvgks" path="res://weapons/grapple/hook.png" id="1_ycaw3"]
@@ -6,11 +6,17 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uhbx1"]
 radius = 11.0
 
-[node name="GrappleHook" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kspb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5byr3"]
+size = Vector2(59.5513, 22.9068)
+
+[node name="GrappleHook" type="Area2D" node_paths=PackedStringArray("joint")]
 scale = Vector2(0.990742, 1.00407)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_2rhoa")
+joint = NodePath("PinBody")
 spriteImage = ExtResource("1_ycaw3")
 muzzle_velocity = 500.0
 
@@ -25,10 +31,14 @@ texture = ExtResource("1_ycaw3")
 position = Vector2(28, 3)
 shape = SubResource("CircleShape2D_uhbx1")
 
-[node name="Rope" type="Line2D" parent="."]
-width = 50.0
-default_color = Color(0.235294, 0.121569, 0.0235294, 1)
+[node name="PinBody" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 3
 
-[node name="RopeBase" type="Area2D" parent="."]
-position = Vector2(-21.1962, 1.99189)
-scale = Vector2(6.27088, 60.7353)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinBody"]
+position = Vector2(28.2616, 2.98784)
+shape = SubResource("RectangleShape2D_0kspb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.57943, 1.49392)
+shape = SubResource("RectangleShape2D_5byr3")

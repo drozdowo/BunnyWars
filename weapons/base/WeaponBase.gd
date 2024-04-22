@@ -19,35 +19,30 @@ var VELOCITY_METER: PackedScene = preload("res://weapons/FireVelocityMeter.tscn"
 @export var WEAPON_SPRITE_SCALE: Vector2 = Vector2(1,1);
 @export var CURSOR_OVERRIDE: CompressedTexture2D = preload("res://weapons/crosshair.png")
 @onready var sprite = $Sprite;
-
-var is_equipped: bool = false;
+@onready var bunny: Bunny = $"../../" #WeaponMount ../ Bunny
 
 func _ready():
 	print("weapon base load")
 	sprite.scale = WEAPON_SPRITE_SCALE;
 
 func equip(bunny: Bunny):
-	is_equipped = true;
 	Input.set_custom_mouse_cursor(CURSOR_OVERRIDE)
 	print(bunny.bunnyName, ' equipped: ', WEAPON_NAME)
 	sb.bunny_fire.connect(begin_fire)
 	
 func unequip(bunny: Bunny):
-	is_equipped = false
 	print(bunny.bunnyName, ' UNequipped: ', WEAPON_NAME)
 	sb.bunny_fire.disconnect(begin_fire)
 	sb.bunny_release_fire.disconnect(release_fire)
 
 # handles the velocity meter if applicable
 func begin_fire(bunny: Bunny):
-	if !is_equipped: return
 	if (canAdjustVelocity()):
 		create_velocity_meter(bunny);
 		sb.bunny_release_fire.connect(release_fire)
 	else:
 		fire()
 	
-
 func fire(speed: float = 1):
 	print("firing: ", WEAPON_NAME)
 	Input.set_custom_mouse_cursor(null)

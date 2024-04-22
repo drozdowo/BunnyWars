@@ -21,7 +21,7 @@ func startGame():
 	var count = 1
 	for spawnPoint: BunnySpawnPoint in spawnPoints:
 		var spawned: Bunny = bunnyObject.instantiate()
-		spawned.initBunny(spawned, 'name', ["Bazooka", "Grenade"])
+		spawned.initBunny(spawned, 'name', ["Bazooka", "Grenade", "Katana", "GrapplingHook"])
 		bunnies.append(spawned)
 		add_child(spawned)
 		spawned.bunnyName = 'gamer' + str(count)

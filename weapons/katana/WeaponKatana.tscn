@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://3upjspfdtin1"]
+
+[ext_resource type="Script" path="res://weapons/katana/WeaponKatana.gd" id="1_bby2m"]
+[ext_resource type="Texture2D" uid="uid://dsg11akql5esp" path="res://weapons/katana/katana.png" id="2_ie0ah"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bk6w"]
+radius = 337.053
+
+[node name="WeaponKatana" type="Node2D"]
+script = ExtResource("1_bby2m")
+WEAPON_NAME = "Katana"
+WEAPON_SPRITE = ExtResource("2_ie0ah")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ie0ah")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_3bk6w")
