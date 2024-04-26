@@ -32,3 +32,11 @@ static func instantiateAndLaunch(resource: Resource, position: Vector2, rotation
 	Consts.root.add_child(projectile)
 	projectile.launch(max(1, speed / 25))
 	return projectile;
+
+static func instantiateAndLaunchAsChild(resource: Resource, position: Vector2, rotation: float, speed: float, parent: Node):
+	var projectile: Projectile = resource.instantiate()
+	parent.add_child(projectile)
+	projectile.global_position = position
+	projectile.global_rotation = rotation
+	projectile.launch(max(1, speed / 25))
+	return projectile;

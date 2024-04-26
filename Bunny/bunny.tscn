@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgyyhw0vdjd53"]
+[gd_scene load_steps=13 format=3 uid="uid://cgyyhw0vdjd53"]
 
 [ext_resource type="Script" path="res://bunny.gd" id="1_tpkj6"]
 [ext_resource type="Texture2D" uid="uid://djl2mb6meyw7" path="res://Bunny/bunny.png" id="2_3b2nk"]
 [ext_resource type="Script" path="res://Bunny/Background.gd" id="3_bcvcw"]
 [ext_resource type="Script" path="res://Bunny/WeaponMount.gd" id="5_glppa"]
 [ext_resource type="PackedScene" uid="uid://c4fyn5g4dv6j3" path="res://UI/RadialMenu.tscn" id="5_wxxap"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hpjx0"]
+rough = true
+bounce = 0.1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_djd8a"]
 animations = [{
@@ -33,22 +37,27 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_pe15y"]
 radius = 220.0
 
-[node name="Bunny" type="CharacterBody2D"]
-position = Vector2(502, 323)
+[node name="Bunny" type="RigidBody2D"]
 collision_layer = 2
-floor_constant_speed = true
-floor_snap_length = 32.0
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_hpjx0")
+can_sleep = false
+max_contacts_reported = 8
+contact_monitor = true
 script = ExtResource("1_tpkj6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -5)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_djd8a")
 animation = &"idle"
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(3, -5)
 shape = SubResource("CircleShape2D_6em3g")
 
 [node name="BunnyOverhead" type="CanvasGroup" parent="."]
+position = Vector2(3, -5)
 
 [node name="OverheadBackground" type="Control" parent="BunnyOverhead"]
 layout_mode = 3
@@ -118,7 +127,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="WeaponMount" type="Sprite2D" parent="."]
-position = Vector2(-5, 16)
+position = Vector2(-1.99997, 11)
 scale = Vector2(0.2, 0.2)
 centered = false
 offset = Vector2(0, -135)

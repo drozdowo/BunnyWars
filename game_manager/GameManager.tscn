@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ll4muufxgs8w"]
+
+[ext_resource type="Script" path="res://game_manager/GameManager.gd" id="1_yy03g"]
+[ext_resource type="Script" path="res://States/StateMachine.gd" id="2_6jplr"]
+[ext_resource type="Script" path="res://game_manager/GameInitializationState.gd" id="3_w8aya"]
+[ext_resource type="Script" path="res://game_manager/SpawnTeams.gd" id="4_qicdl"]
+
+[node name="GameManager" type="Node2D" node_paths=PackedStringArray("stateMachine")]
+script = ExtResource("1_yy03g")
+stateMachine = NodePath("StateMachine")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_6jplr")
+initial_state = NodePath("GameInitialization")
+
+[node name="GameInitialization" type="Node" parent="StateMachine"]
+script = ExtResource("3_w8aya")
+
+[node name="SpawnTeams" type="Node" parent="StateMachine"]
+script = ExtResource("4_qicdl")

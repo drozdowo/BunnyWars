@@ -1,13 +1,10 @@
 class_name BunnySpawnPoint extends Node2D
 
-const SPAWN_POINT_GROUP = 'BUNNY_SPAWN_POINT_GROUP'
-
 @onready var sprite = $Sprite2D
-@export var bunnySpawnedHere: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group(SPAWN_POINT_GROUP)
+	add_to_group(Groups.BUNNY_SPAWN)
 	sprite.visible = false
 	pass # Replace with function body.
 

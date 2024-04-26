@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://vch5dssgmxvh"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_m4bs8"]
+[ext_resource type="Script" path="res://Constss.gd" id="1_4rs4x"]
 [ext_resource type="PackedScene" uid="uid://dameu5vc6i2jm" path="res://camera_2d.tscn" id="4_106fj"]
 [ext_resource type="PackedScene" uid="uid://cuifxqyu50dbi" path="res://bunny_spawn_point.tscn" id="5_051co"]
 [ext_resource type="PackedScene" uid="uid://ll4muufxgs8w" path="res://game_manager/GameManager.tscn" id="5_k1ymv"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://kee5hc4q4556" path="res://terrain.tscn" id="6_wqbff"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_m4bs8")
+script = ExtResource("1_4rs4x")
 
 [node name="Camera2D" parent="." instance=ExtResource("4_106fj")]
 position = Vector2(669, 583)
@@ -30,7 +30,7 @@ pivot_offset = Vector2(17, -308)
 position = Vector2(380, 253)
 
 [node name="bunny_spawn_point2" parent="." instance=ExtResource("5_051co")]
-position = Vector2(626, 257)
+position = Vector2(925, 350)
 
 [node name="Terrain" parent="." instance=ExtResource("6_wqbff")]
 position = Vector2(371, 468)
@@ -59,9 +59,9 @@ position = Vector2(-105, 104)
 rotation = 0.785398
 
 [node name="bunny_spawn_point3" parent="." instance=ExtResource("5_051co")]
-position = Vector2(893, 257)
+position = Vector2(1273, 341)
 
 [node name="bunny_spawn_point4" parent="." instance=ExtResource("5_051co")]
-position = Vector2(1112, 252)
+position = Vector2(1741, 354)
 
 [node name="GameManager" parent="." instance=ExtResource("5_k1ymv")]

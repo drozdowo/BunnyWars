@@ -5,7 +5,7 @@ var WEAPON_DAMAGE = 100
 
 func fire(speed: float = 1):
 	self.bunny.friction = 0.1
-	self.bunny.velocity += self.bunny.position.direction_to(get_global_mouse_position()) * 1000
+	self.bunny.linear_velocity += self.bunny.position.direction_to(get_global_mouse_position()) * 1000
 	(self.bunny.velocity_zero as Signal).connect(finish_firing)
 	katanaHitbox.body_entered.connect(hit)
 	

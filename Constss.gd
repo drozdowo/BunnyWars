@@ -1,3 +1,3 @@
-class_name Consts extends Node
+class_name Consts
 
-static var root;
+static var root: Node2D;

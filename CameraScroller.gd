@@ -20,9 +20,9 @@ func _process(delta):
 
 func _physics_process(delta):
 	if Input.is_action_pressed("bunny_center_camera"):
-		var bunnyPos = (Consts.root as GameManager).active_bunny.position
+		#var bunnyPos = (Consts.root as GameManager).active_bunny.position
 		var cameraPos = get_viewport_rect().get_center()
-		position = bunnyPos
+		#position = bunnyPos
 
 func handle_zoom():
 	if Input.is_action_just_pressed("bunny_zoom_in") && zoom.x < maxZoom:

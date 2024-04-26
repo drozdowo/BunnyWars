@@ -25,6 +25,6 @@ func explode():
 		if hit is DestructibleTerrain:
 			hit.destroyTerrainCircle(explosionRadius.global_position, explosionRadius.shape.radius)
 		if hit is Bunny:
-			hit.velocity += explosionRadius.global_position.direction_to(hit.global_position) * 500
+			hit.linear_velocity += explosionRadius.global_position.direction_to(hit.global_position) * 500
 			hit.takeDamage(damage)
 	queue_free()

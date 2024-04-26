@@ -1,7 +1,9 @@
 class_name SB extends Node
 
 # Game Signals
+signal game_ready
 signal add_team(team: Team)
+signal bunny_join_team(bunny:Bunny, team: Team)
 
 # Bunny Signals
 signal bunny_take_damage(bunny: Bunny, damage: float)

@@ -22,10 +22,12 @@ func _process(delta):
 	if (ropeOrigin.distance_to(global_position) >= maxRange):
 		print("max range");
 		hook_break.emit()
-		queue_free();
 
 func _grapple_hit(node: Node):
 	if (node is DestructibleTerrain):
 		print("grapple hit something")
 		hook_hit_terrain.emit()
 		frozen = true
+
+func link_bunny_to_grapple(bunny: Bunny):
+	pass

@@ -8,11 +8,11 @@ class_name DestructibleTerrain extends StaticBody2D
 var myCollider: CollisionPolygon2D
 
 func _init():
-	add_to_group(Groups.TERRAIN_GROUP)
+	add_to_group(Groups.TERRAIN)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group("terrain")
+	add_to_group(Groups.TERRAIN)
 	myCollider = CollisionPolygon2D.new()
 	add_child(myCollider)
 	myCollider.name = "terrain"
