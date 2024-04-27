@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://degd8sbjy47uw"]
+[gd_scene load_steps=4 format=3 uid="uid://degd8sbjy47uw"]
 
 [ext_resource type="Script" path="res://UI/Team/TeamManager.gd" id="1_p6if6"]
+[ext_resource type="Script" path="res://UI/Team/TurnTimer.gd" id="2_wj1it"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_87t06"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.847059)
+shadow_offset = Vector2(2, 2)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,7 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_p6if6")
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TeamOutline" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -26,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 0.301961)
 
-[node name="GridContainer" type="GridContainer" parent="ColorRect"]
+[node name="GridContainer" type="GridContainer" parent="TeamOutline"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
@@ -38,3 +45,31 @@ offset_left = -9.5
 offset_top = -3.75
 offset_right = 7.09998
 offset_bottom = 7.09999
+
+[node name="TurnTimerOutline" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = -625.0
+offset_right = 27.0
+offset_bottom = -584.0
+grow_horizontal = 2
+pivot_offset = Vector2(0, -625)
+color = Color(1, 1, 1, 0.341176)
+script = ExtResource("2_wj1it")
+
+[node name="TurnTimer" type="Label" parent="TurnTimerOutline"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "15"
+label_settings = SubResource("LabelSettings_87t06")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="TurnTimerOutline"]

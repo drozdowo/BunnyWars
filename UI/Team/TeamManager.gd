@@ -1,8 +1,9 @@
 class_name TeamManager extends Control
 
 @onready var _teamDisplay = preload("res://UI/Team/TeamDisplay.tscn")
-@onready var _grid = $ColorRect/GridContainer
+@onready var _grid = $TeamOutline/GridContainer
 @onready var camera: Camera2D = $"../"
+@onready var turnTimerLabel: Label = $TurnTimerOutline/TurnTimer
 
 var teamDict = {}
 
