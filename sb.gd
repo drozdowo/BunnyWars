@@ -7,7 +7,8 @@ signal teams_spawned
 
 # Bunny Signals
 signal bunny_take_damage(bunny: Bunny, damage: float)
-signal bunny_join_team(bunny:Bunny, team: Team)
+signal bunny_join_team(bunny: Bunny, team: Team)
+signal bunny_finished_turn(bunny: Bunny)
 
 # Weapons
 var WEAPON_DICT = {

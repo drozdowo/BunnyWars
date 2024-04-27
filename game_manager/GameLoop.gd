@@ -9,3 +9,7 @@ func enter(_msg = {}):
 	teamOrder = _msg.get('teams');
 	print(teamOrder[0]._teamName)
 	teamOrder[0]._bunnies[curBunnyIndex].isActive = true;
+	sb.bunny_finished_turn.connect()
+	
+func finished_turn():
+	state_machine.transition_to("TurnEnd", )

@@ -22,3 +22,5 @@ script = ExtResource("4_qicdl")
 
 [node name="GameLoop" type="Node" parent="StateMachine"]
 script = ExtResource("5_yfoy0")
+
+[node name="TurnEnd" type="Node" parent="StateMachine"]
