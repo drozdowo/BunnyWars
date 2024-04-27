@@ -69,7 +69,7 @@ func fire(speed: float = 1):
 	hook.init_hook(global_position)
 	rope.add_point(Vector2.ZERO)
 	rope.add_point(Vector2.ZERO)
-	sb.bunny_release_fire.connect(clear_hook)
+	bunny.bunny_release_fire.connect(clear_hook)
 	hook.hook_break.connect(clear_hook.bind(bunny))
 	hook.hook_hit_terrain.connect(hook_connect)
 	print("connect clear hook")

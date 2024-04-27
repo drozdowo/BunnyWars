@@ -16,6 +16,15 @@ signal velocity_zero(bunny: Bunny)
 signal overriding_movement
 signal finish_overriding_movement
 
+# Bunny Weapon Functionality Signals
+#signal bunny_equip_weapon(bunny: Bunny, weapon: WeaponBase)
+signal bunny_fire(bunny: Bunny)
+signal bunny_release_fire(bunny: Bunny)
+signal bunny_show_radial(bunny: Bunny)
+signal bunny_hide_radial(bunny: Bunny)
+signal bunny_equip_weapon(weapon: WeaponBase)
+signal bunny_unequip_weapon(weapon: WeaponBase)
+
 var bunnyName = ''
 var team: int;
 var turnOrder = 0
@@ -35,7 +44,7 @@ func with_data(_data: BunnyData):
 
 func _ready():
 	add_to_group(Groups.BUNNY)
-	sb.bunny_equip_weapon.connect(equip_weapon)
+	bunny_equip_weapon.connect(equip_weapon)
 	overriding_movement.connect(override_movement)
 	lock_rotation = true
 	body_entered.connect(handle_collision)
@@ -77,10 +86,10 @@ func handle_controls():
 		radialMenu.hide_radial.emit()
 		
 	if Input.is_action_just_pressed("bunny_click"):
-		sb.bunny_fire.emit(self)
+		bunny_fire.emit(self)
 	
 	if Input.is_action_just_released("bunny_click"):
-		sb.bunny_release_fire.emit(self)
+		bunny_release_fire.emit(self)
 		
 	if !movementOverridden && (Input.is_action_just_pressed("bunny_move_up") && onFloor):
 		linear_velocity.y = JUMP_VELOCITY

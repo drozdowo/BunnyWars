@@ -1,5 +1,8 @@
 class_name SpawnTeamsState extends State
 
+var bunnies: Array[Bunny] = [];
+var turnOrder: Array[Bunny] = [];
+
 func enter(msg = {}):
 	print(msg)
 	for i in msg:
@@ -15,4 +18,6 @@ func enter(msg = {}):
 			spawned.position = spawn.position
 			(spawn as Node).remove_from_group(Groups.BUNNY_SPAWN)
 			spawn.queue_free()
-			print("spawned")
+			bunnies.append(spawned);
+			sb.bunny_join_team.emit(spawned, team)
+	sb.teams_spawned.emit()

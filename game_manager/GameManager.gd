@@ -7,7 +7,18 @@ var teams: Array[Team] = []
 
 func _ready():
 	sb.game_ready.connect(load_teams)
+	sb.add_team.connect(add_team)
+	sb.teams_spawned.connect(start_game)
 	
+func add_team(team: Team):
+	if randi_range(0,1) == 1:
+		teams.append(team);
+	else:
+		teams.insert(0, team);
+	
+func start_game():
+	# teams are spawned, lets game
+	stateMachine.transition_to("GameLoop", {"teams": teams})
 	
 func load_teams():
 		# team 1

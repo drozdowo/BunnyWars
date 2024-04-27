@@ -43,7 +43,7 @@ func hide_menu():
 	menu_items = []
 
 func equip_weapon(weapon: WeaponBase):
-	sb.bunny_equip_weapon.emit(weapon)
+	bunny.bunny_equip_weapon.emit(weapon)
 
 func _process(delta):
 	if ($Control.visible == true):
