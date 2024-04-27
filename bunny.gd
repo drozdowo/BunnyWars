@@ -66,6 +66,11 @@ func equip_weapon(weapon: WeaponBase):
 		print("equip:", weapon.WEAPON_NAME)
 		weaponMount.visible = true
 		weaponMount.equip_weapon(weapon)
+
+func finish_turn():
+	weaponMount.visible = false;
+	isActive = false;
+	weaponMount.clear_weapon();
 	
 func takeDamage(damage: float):
 	health -= damage;

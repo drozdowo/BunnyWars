@@ -1,15 +1,12 @@
 class_name GameLoopState extends State
 
 var activeBunny: Bunny = null;
-var teamOrder: Array[Team];
-var curBunnyIndex: int = 0;
 
 func enter(_msg = {}):
-	print("start game", _msg.get('teams'))
-	teamOrder = _msg.get('teams');
-	print(teamOrder[0]._teamName)
-	teamOrder[0]._bunnies[curBunnyIndex].isActive = true;
-	sb.bunny_finished_turn.connect()
+	_msg["bunny"].isActive = true;
+	activeBunny = _msg["bunny"]
+	sb.bunny_start_turn.emit(activeBunny)
+	sb.bunny_finished_turn.connect(finished_turn)
 	
 func finished_turn():
-	state_machine.transition_to("TurnEnd", )
+	state_machine.transition_to("TurnEnd", {"bunny": activeBunny})

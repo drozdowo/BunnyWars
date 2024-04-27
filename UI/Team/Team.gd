@@ -20,7 +20,8 @@ func take_damage(newHealth: float):
 	var curHp: float = 0;
 	var totalHp: float = len(_bunnies) * 100;
 	for bunny in _bunnies:
-		curHp += bunny.health;
+		if bunny != null:
+			curHp += bunny.health;
 	_teamDisplay.teamHealth.value = curHp
 		
 func load_health():
@@ -30,3 +31,4 @@ func load_health():
 	
 func _ready():
 	_teamDisplay.teamName.text = _teamName;
+	

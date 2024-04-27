@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvjqphxv13pob"]
 
-[ext_resource type="Theme" uid="uid://stg8hps8oh07" path="res://MenuTheme.tres" id="1_bosqu"]
-[ext_resource type="Script" path="res://CreateGame.gd" id="2_x1105"]
+[ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="1_25x6o"]
+[ext_resource type="Theme" uid="uid://stg8hps8oh07" path="res://MainMenu/MenuTheme.tres" id="1_bosqu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4qhut"]
 font_size = 72
@@ -13,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_25x6o")
 
 [node name="MenuContainer" type="GridContainer" parent="."]
 layout_mode = 1
@@ -47,7 +48,6 @@ size_flags_vertical = 3
 tooltip_text = "Test"
 theme = ExtResource("1_bosqu")
 stretch_mode = 3
-script = ExtResource("2_x1105")
 
 [node name="Label" type="Label" parent="MenuContainer/GridContainer/JoinGame"]
 layout_mode = 1
@@ -69,7 +69,6 @@ size_flags_vertical = 3
 tooltip_text = "Test"
 theme = ExtResource("1_bosqu")
 stretch_mode = 0
-script = ExtResource("2_x1105")
 
 [node name="Label" type="Label" parent="MenuContainer/GridContainer/CustomizeBunnies"]
 layout_mode = 1
@@ -78,11 +77,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Customize Bunnies"
+text = "Your Team"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CreateGame" type="TextureButton" parent="MenuContainer/GridContainer"]
+[node name="Options" type="TextureButton" parent="MenuContainer/GridContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -90,16 +89,15 @@ size_flags_vertical = 3
 tooltip_text = "Test"
 theme = ExtResource("1_bosqu")
 stretch_mode = 3
-script = ExtResource("2_x1105")
 
-[node name="Label" type="Label" parent="MenuContainer/GridContainer/CreateGame"]
+[node name="Label" type="Label" parent="MenuContainer/GridContainer/Options"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Create Game"
+text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 

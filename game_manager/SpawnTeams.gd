@@ -10,6 +10,7 @@ func enter(msg = {}):
 		var team = Team.new(teamData)
 		sb.add_team.emit(team)
 		for bunny: BunnyData in teamData.teamBunnies:
+			print("spawning:", bunny.as_string())
 			var spawn: Node = get_tree().get_nodes_in_group(Groups.BUNNY_SPAWN).pick_random()
 			var bunnyScene = preload("res://Bunny/bunny.tscn")
 			var spawned: Bunny = bunnyScene.instantiate().with_data(bunny)

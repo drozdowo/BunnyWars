@@ -4,10 +4,12 @@ class_name SB extends Node
 signal game_ready
 signal add_team(team: Team)
 signal teams_spawned
+signal post_turn_done
 
 # Bunny Signals
 signal bunny_take_damage(bunny: Bunny, damage: float)
 signal bunny_join_team(bunny: Bunny, team: Team)
+signal bunny_start_turn(bunny: Bunny)
 signal bunny_finished_turn(bunny: Bunny)
 
 # Weapons

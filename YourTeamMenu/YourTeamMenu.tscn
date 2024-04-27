@@ -1,0 +1,540 @@
+[gd_scene load_steps=12 format=3 uid="uid://4oq44rn0u5md"]
+
+[ext_resource type="Script" path="res://YourTeamMenu/YourTeamMenu.gd" id="1_2xqia"]
+[ext_resource type="Texture2D" uid="uid://djl2mb6meyw7" path="res://Bunny/bunny.png" id="1_b4bxd"]
+[ext_resource type="Script" path="res://YourTeamMenu/BunnyBarController.gd" id="2_op2ce"]
+[ext_resource type="ButtonGroup" uid="uid://bvf1s4wwe4hkj" path="res://YourTeamMenu/WeaponsMenuGroup.tres" id="2_xqhy1"]
+[ext_resource type="Script" path="res://YourTeamMenu/BunnyCustomizeRow.gd" id="3_4v3vi"]
+[ext_resource type="Texture2D" uid="uid://dfgox3mbam4ii" path="res://weapons/grapple/grapplehook.png" id="3_comeu"]
+[ext_resource type="Texture2D" uid="uid://nx5nju5mf40e" path="res://weapons/bazooka/bazooka.png" id="4_07o1v"]
+[ext_resource type="Script" path="res://YourTeamMenu/OptionButton.gd" id="4_g5fms"]
+[ext_resource type="Script" path="res://YourTeamMenu/PerkOptionsButton.gd" id="6_gx3ef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r4kke"]
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_dvc2t"]
+font_size = 28
+
+[node name="YourTeamMenu" type="Node2D"]
+script = ExtResource("1_2xqia")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 58.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TopBar" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Top" type="GridContainer" parent="CanvasLayer/VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/TopBar/Top"]
+layout_mode = 2
+text = "Back to Menu"
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/TopBar/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Your Team"
+label_settings = SubResource("LabelSettings_r4kke")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TeamBar" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/TeamBar"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/TeamBar/HBoxContainer"]
+layout_mode = 2
+text = "Team Name:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/TeamBar/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+placeholder_text = "cavem3n"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/TeamBar/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/TeamBar/HBoxContainer"]
+layout_mode = 2
+text = "Team Color:"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="CanvasLayer/VBoxContainer/TeamBar/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+edit_alpha = false
+
+[node name="BunnyBar" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_op2ce")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="BunnyCustomize" type="MarginContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_4v3vi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer"]
+layout_mode = 2
+text = "1
+"
+label_settings = SubResource("LabelSettings_dvc2t")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_b4bxd")
+expand_mode = 3
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+placeholder_text = "Name"
+max_length = 20
+caret_blink = true
+
+[node name="Weapon1" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer/Weapon1"]
+layout_mode = 2
+text = "Weapon 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer/Weapon1"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 2
+fit_to_longest_item = false
+popup/item_0/text = "Bazooka"
+popup/item_0/icon = ExtResource("4_07o1v")
+popup/item_0/id = 0
+popup/item_1/text = "GrapplingHook"
+popup/item_1/icon = ExtResource("3_comeu")
+popup/item_1/id = 1
+script = ExtResource("4_g5fms")
+
+[node name="Weapon2" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer/Weapon2"]
+layout_mode = 2
+text = "Weapon 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer/Weapon2"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 2
+fit_to_longest_item = false
+popup/item_0/text = "Bazooka"
+popup/item_0/icon = ExtResource("4_07o1v")
+popup/item_0/id = 0
+popup/item_1/text = "GrapplingHook"
+popup/item_1/icon = ExtResource("3_comeu")
+popup/item_1/id = 1
+script = ExtResource("4_g5fms")
+
+[node name="Perk" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer/Perk"]
+layout_mode = 2
+text = "Perk
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize/HBoxContainer/Perk"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 6
+fit_to_longest_item = false
+popup/item_0/text = "Planner"
+popup/item_0/id = 0
+popup/item_1/text = "Anchored"
+popup/item_1/id = 1
+popup/item_2/text = "Calculated"
+popup/item_2/id = 2
+popup/item_3/text = "Hastened"
+popup/item_3/id = 3
+popup/item_4/text = "Radioactive"
+popup/item_4/id = 4
+popup/item_5/text = "Tank"
+popup/item_5/id = 5
+script = ExtResource("6_gx3ef")
+
+[node name="BunnyCustomize2" type="MarginContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_4v3vi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer"]
+layout_mode = 2
+text = "2
+"
+label_settings = SubResource("LabelSettings_dvc2t")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_b4bxd")
+expand_mode = 3
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+placeholder_text = "Name"
+max_length = 20
+caret_blink = true
+
+[node name="Weapon1" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer/Weapon1"]
+layout_mode = 2
+text = "Weapon 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer/Weapon1"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 2
+fit_to_longest_item = false
+popup/item_0/text = "Bazooka"
+popup/item_0/icon = ExtResource("4_07o1v")
+popup/item_0/id = 0
+popup/item_1/text = "GrapplingHook"
+popup/item_1/icon = ExtResource("3_comeu")
+popup/item_1/id = 1
+script = ExtResource("4_g5fms")
+
+[node name="Weapon2" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer/Weapon2"]
+layout_mode = 2
+text = "Weapon 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer/Weapon2"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 2
+fit_to_longest_item = false
+popup/item_0/text = "Bazooka"
+popup/item_0/icon = ExtResource("4_07o1v")
+popup/item_0/id = 0
+popup/item_1/text = "GrapplingHook"
+popup/item_1/icon = ExtResource("3_comeu")
+popup/item_1/id = 1
+script = ExtResource("4_g5fms")
+
+[node name="Perk" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer/Perk"]
+layout_mode = 2
+text = "Perk
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize2/HBoxContainer/Perk"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 6
+fit_to_longest_item = false
+popup/item_0/text = "Planner"
+popup/item_0/id = 0
+popup/item_1/text = "Anchored"
+popup/item_1/id = 1
+popup/item_2/text = "Calculated"
+popup/item_2/id = 2
+popup/item_3/text = "Hastened"
+popup/item_3/id = 3
+popup/item_4/text = "Radioactive"
+popup/item_4/id = 4
+popup/item_5/text = "Tank"
+popup/item_5/id = 5
+script = ExtResource("4_g5fms")
+
+[node name="BunnyCustomize3" type="MarginContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_4v3vi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer"]
+layout_mode = 2
+text = "3
+"
+label_settings = SubResource("LabelSettings_dvc2t")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_b4bxd")
+expand_mode = 3
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+placeholder_text = "Name"
+max_length = 20
+caret_blink = true
+
+[node name="Weapon1" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer/Weapon1"]
+layout_mode = 2
+text = "Weapon 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer/Weapon1"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 2
+fit_to_longest_item = false
+popup/item_0/text = "Bazooka"
+popup/item_0/icon = ExtResource("4_07o1v")
+popup/item_0/id = 0
+popup/item_1/text = "GrapplingHook"
+popup/item_1/icon = ExtResource("3_comeu")
+popup/item_1/id = 1
+script = ExtResource("4_g5fms")
+
+[node name="Weapon2" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer/Weapon2"]
+layout_mode = 2
+text = "Weapon 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer/Weapon2"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 2
+fit_to_longest_item = false
+popup/item_0/text = "Bazooka"
+popup/item_0/icon = ExtResource("4_07o1v")
+popup/item_0/id = 0
+popup/item_1/text = "GrapplingHook"
+popup/item_1/icon = ExtResource("3_comeu")
+popup/item_1/id = 1
+script = ExtResource("4_g5fms")
+
+[node name="Perk" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer/Perk"]
+layout_mode = 2
+text = "Perk
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize3/HBoxContainer/Perk"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 6
+fit_to_longest_item = false
+popup/item_0/text = "Planner"
+popup/item_0/id = 0
+popup/item_1/text = "Anchored"
+popup/item_1/id = 1
+popup/item_2/text = "Calculated"
+popup/item_2/id = 2
+popup/item_3/text = "Hastened"
+popup/item_3/id = 3
+popup/item_4/text = "Radioactive"
+popup/item_4/id = 4
+popup/item_5/text = "Tank"
+popup/item_5/id = 5
+script = ExtResource("4_g5fms")
+
+[node name="BunnyCustomize4" type="MarginContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_4v3vi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer"]
+layout_mode = 2
+text = "4"
+label_settings = SubResource("LabelSettings_dvc2t")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_b4bxd")
+expand_mode = 3
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+placeholder_text = "Name"
+max_length = 20
+caret_blink = true
+
+[node name="Weapon1" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer/Weapon1"]
+layout_mode = 2
+text = "Weapon 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer/Weapon1"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 2
+fit_to_longest_item = false
+popup/item_0/text = "Bazooka"
+popup/item_0/icon = ExtResource("4_07o1v")
+popup/item_0/id = 0
+popup/item_1/text = "GrapplingHook"
+popup/item_1/icon = ExtResource("3_comeu")
+popup/item_1/id = 1
+script = ExtResource("4_g5fms")
+
+[node name="Weapon2" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer/Weapon2"]
+layout_mode = 2
+text = "Weapon 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer/Weapon2"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 2
+fit_to_longest_item = false
+popup/item_0/text = "Bazooka"
+popup/item_0/icon = ExtResource("4_07o1v")
+popup/item_0/id = 0
+popup/item_1/text = "GrapplingHook"
+popup/item_1/icon = ExtResource("3_comeu")
+popup/item_1/id = 1
+script = ExtResource("4_g5fms")
+
+[node name="Perk" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer/Perk"]
+layout_mode = 2
+text = "Perk
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer/BunnyBar/VBoxContainer/BunnyCustomize4/HBoxContainer/Perk"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("2_xqhy1")
+item_count = 6
+fit_to_longest_item = false
+popup/item_0/text = "Planner"
+popup/item_0/id = 0
+popup/item_1/text = "Anchored"
+popup/item_1/id = 1
+popup/item_2/text = "Calculated"
+popup/item_2/id = 2
+popup/item_3/text = "Hastened"
+popup/item_3/id = 3
+popup/item_4/text = "Radioactive"
+popup/item_4/id = 4
+popup/item_5/text = "Tank"
+popup/item_5/id = 5
+script = ExtResource("4_g5fms")
+
+[node name="BottomBar" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="SaveTeam" type="Button" parent="CanvasLayer/VBoxContainer/BottomBar"]
+layout_mode = 2
+text = "Save Team"

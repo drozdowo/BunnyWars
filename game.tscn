@@ -27,10 +27,10 @@ offset_bottom = 308.0
 pivot_offset = Vector2(17, -308)
 
 [node name="bunny_spawn_point" parent="." instance=ExtResource("5_051co")]
-position = Vector2(380, 253)
+position = Vector2(-62, 38)
 
 [node name="bunny_spawn_point2" parent="." instance=ExtResource("5_051co")]
-position = Vector2(626, 257)
+position = Vector2(2363, -113)
 
 [node name="Terrain" parent="." instance=ExtResource("6_wqbff")]
 position = Vector2(371, 468)
@@ -38,11 +38,68 @@ position = Vector2(371, 468)
 [node name="Terrain2" parent="." instance=ExtResource("6_wqbff")]
 position = Vector2(868, 468)
 
+[node name="Terrain9" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(1870, 464)
+rotation = -0.760884
+
+[node name="Terrain10" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(2246, 117)
+rotation = -0.760884
+
+[node name="Terrain11" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(-1518, 993)
+rotation = -0.760884
+
+[node name="Terrain12" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(-1884, 1337)
+rotation = -0.760884
+
+[node name="Terrain13" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(-717, 1681)
+rotation = -0.00952405
+
+[node name="Terrain14" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(-260, 1670)
+rotation = -0.00952405
+
+[node name="Terrain15" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(227, 1666)
+rotation = -0.00952405
+
+[node name="Terrain16" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(684, 1655)
+rotation = -0.00952405
+
+[node name="Terrain22" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(-2382, 1323)
+rotation = -0.00952405
+
+[node name="Terrain17" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(1186, 1522)
+rotation = -0.00952405
+
+[node name="Terrain21" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(1186, 1522)
+rotation = -0.00952405
+
+[node name="Terrain10" parent="Terrain21" instance=ExtResource("6_wqbff")]
+position = Vector2(-907.473, -584.669)
+rotation = -0.240936
+
+[node name="Terrain18" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(1643, 1511)
+rotation = -0.00952405
+
+[node name="Terrain19" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(2130, 1507)
+rotation = -0.00952405
+
+[node name="Terrain20" parent="." instance=ExtResource("6_wqbff")]
+position = Vector2(2587, 1496)
+rotation = -0.00952405
+
 [node name="Terrain3" parent="." instance=ExtResource("6_wqbff")]
 position = Vector2(1367, 467)
-
-[node name="Terrain4" parent="." instance=ExtResource("6_wqbff")]
-position = Vector2(-1126, 468)
 
 [node name="Terrain5" parent="." instance=ExtResource("6_wqbff")]
 position = Vector2(-629, 468)
@@ -59,9 +116,15 @@ position = Vector2(-105, 104)
 rotation = 0.785398
 
 [node name="bunny_spawn_point3" parent="." instance=ExtResource("5_051co")]
-position = Vector2(893, 257)
+position = Vector2(2467, 1337)
 
 [node name="bunny_spawn_point4" parent="." instance=ExtResource("5_051co")]
-position = Vector2(1112, 252)
+position = Vector2(1384, 358)
+
+[node name="bunny_spawn_point5" parent="." instance=ExtResource("5_051co")]
+position = Vector2(-2101, 1234)
+
+[node name="bunny_spawn_point6" parent="." instance=ExtResource("5_051co")]
+position = Vector2(-296, 1544)
 
 [node name="GameManager" parent="." instance=ExtResource("5_k1ymv")]

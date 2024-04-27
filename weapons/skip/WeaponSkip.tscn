@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b81lph3iyyfa1"]
+[gd_scene load_steps=3 format=3 uid="uid://bqcg2w0th6ga1"]
 
-[ext_resource type="PackedScene" uid="uid://bcs58r6yihyyx" path="res://weapons/base/WeaponBase.tscn" id="1_b6fpj"]
-[ext_resource type="Script" path="res://weapons/skip/WeaponSkip.gd" id="2_jlree"]
-[ext_resource type="Texture2D" uid="uid://nx5nju5mf40e" path="res://weapons/bazooka/bazooka.png" id="3_sjuiu"]
+[ext_resource type="Script" path="res://weapons/skip/WeaponSkip.gd" id="1_wwwg8"]
+[ext_resource type="Texture2D" uid="uid://cle166h761haj" path="res://weapons/skip/skipflag.png" id="2_3gj5i"]
 
-[node name="WeaponBase" instance=ExtResource("1_b6fpj")]
-script = ExtResource("2_jlree")
+[node name="WeaponSkip" type="Node2D"]
+script = ExtResource("1_wwwg8")
+WEAPON_NAME = "Skip"
+WEAPON_TYPE = 4
+WEAPON_SPRITE = ExtResource("2_3gj5i")
 
-[node name="Sprite" parent="." index="0"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_sjuiu")
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3gj5i")

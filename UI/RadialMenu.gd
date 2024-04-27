@@ -16,6 +16,7 @@ func create_menu_items():
 	
 	for i in range(num_items):
 		var button = Button.new()
+		print(menu_items[i])
 		button.text = menu_items[i].WEAPON_NAME
 		button.set_position(Vector2(100, 0).rotated(i * angle_increment))
 		button.button_down.connect(equip_weapon.bind(menu_items[i]))
